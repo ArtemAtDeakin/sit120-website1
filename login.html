@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>Username</p>
+        <input
+        v-model="name"
+        type="text"
+        placeholder="Enter your username"
+        />
+    <p>Password</p>
+    <input 
+    v-model="password"
+    type="password" 
+    placeholder="Enter your password" />
+    <input
+    type="checkbox"
+    id="robot"
+    value="Check if you're a robot"
+    v-model="checkedNames"/>
+    <label for="robot">Check if you're a robot</label>
+    <input
+    type="checkbox"
+    id="human"
+    value="Check if you're a human"
+    v-model="checkedNames"/>
+    <label for="human">Check if you're a human</label>
+    <select v-model="selected">
+        <option value="" disabled>Please select one</option>
+        <option v-for="n in 4">{{ n }}</option>
+    </select>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            name: '',
+            password: '',
+            checkedNames: [],
+            selected: '',
+        }
+    })
+</script>
+</html>
