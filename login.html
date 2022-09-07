@@ -37,8 +37,36 @@
         <option v-for="n in 4">{{ n }}</option>
     </select>
     </div>
+    <div id="compapp">
+        <trying1></trying1>
+        <trying2 whatif="What if "></trying2>
+        {{ something }}
+    </div>
+    <div id="app2">
+        <component1 @random="(random)=>count=random"></component1>
+        <p>Random number: {{ count }}</p>
+    </div>
 </body>
+<script type="text/x-template" id="component1">
+    <div>
+        <button @click="$emit('random', Math.random())">
+        random
+        </button>
+    </div>
+</script>
 <script>
+    var component1 = {
+        template: '#component1',
+    };
+    var app2 = new Vue({
+        el: '#app2',
+        data: {
+            count: 0,
+        },
+        components: {
+            component1,
+        }
+    })
     var app = new Vue({
         el: '#app',
         data: {
@@ -49,4 +77,5 @@
         }
     })
 </script>
+<script src="./script.js"></script>
 </html>

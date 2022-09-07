@@ -1,3 +1,27 @@
+Vue.component('bigtry', {
+    template: '<div>I made a</div>',
+});
+var trying1 = {
+    template: '<div><bigtry></bigtry> sentence</div>',
+};
+var trying2 = {
+    template: '<div>{{ whatif }}<trying1></trying1></div>',
+    components: {
+        trying1,
+    },
+    props: ['whatif']
+};
+var compapp = new Vue({
+    el: '#compapp',
+    data: {
+        something: 'This is just a string of text',
+    },
+    components:{
+        trying1,
+        trying2,
+    }
+});
+
 var sometext = 'Some text here from JavaScript';
 console.log(sometext);
 //This prints the value a variable holds in browser console
