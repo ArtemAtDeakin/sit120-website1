@@ -11,6 +11,7 @@
             display: block;
         }
         </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
     <h1 style="background-color:brown">
@@ -32,11 +33,17 @@
 onclick="document.getElementById('demo').innerHTML = Date()">
 Look you can even click this to see today's date and current time!</button>
 <p id="demo"></p>
-<h1 id="app"></h1>
+<h1 id="app">
+    {{ message }}
+</h1>
 <script src="script.js"></script>
 <script>
-    let text = 'Hello world! This text was written using a script';
-    document.getElementById('app').innerHTML = text;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World!'
+        }
+    })
 </script>
 </body>
 </html>
