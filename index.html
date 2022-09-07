@@ -36,12 +36,24 @@ Look you can even click this to see today's date and current time!</button>
 <h1 id="app">
     {{ message }}
 </h1>
+<div id="inputapp">
+<input v-model="message" placeholder="edit me">
+<p>Message is: {{ message }}</p>
+</div>
 <script src="script.js"></script>
 <script>
     var app = new Vue({
         el: '#app',
         data: {
             message: 'Hello World!'
+        }
+    })
+</script>
+<script>
+    var inputapp = new Vue({
+        el: '#inputapp',
+        data: {
+            message: ''
         }
     })
 </script>
